@@ -1,0 +1,56 @@
+2.4    :::::::::::....... 2011-04-18 .......::::::::::::::
+// ********************************************************
+	Found warning for unscoped variable 'event'. Changed 
+	line 60 to read keycode = window.event.keyCode;
+	
+	Added some different styles to the notification
+	windows.
+	
+2.3    :::::::::::....... 2010-12-20 .......::::::::::::::
+// ********************************************************
+	Plug-in was overwriting the selected element with
+	'body' element (was accidently hard coded and never
+	properly removed).
+	
+	Added another option for z-index. Ran into an issue
+	where notification was being placed behind a light box.
+	The new option will give more flexibility to and allow
+	the plug-in to determine various z-index.
+
+2.2    :::::::::::....... 2010-11-23 .......::::::::::::::
+// ********************************************************
+	Minor change as per recommendation by Sebastian Kun
+	(http://www.arcestra.com/).
+	
+	Added options for better 'internationalization' of 
+	navigation text. Sebastian added two more options for
+	closeLink text and closeText text.
+	
+	Removed the jquery.showMessage.pack.js option
+
+2.1    :::::::::::....... 2010-05-06 .......::::::::::::::
+// ********************************************************
+	Minor change to option.position. Changed order so
+	looking for top position else set to bottom.
+	
+	Issue with IE7+ if there is no doctype declared (shame
+	on you, since DOCTYPES are vital to the proper
+	functioning of web standards in browsers), we have
+	changed insertion of #showMessage to either .prepend()
+	or .append() depending on if position is top or 
+	bottom.
+	
+2.0    :::::::::::....... 2010-04-05 .......::::::::::::::
+// ********************************************************
+	Received a request to make some improvements to the 
+	plugin from DaveG. Thank you much for the constructive
+	comments DaveG.
+	
+	Added new option useEsc to allow the 'esc' key to be
+	optional (boolean true|false).
+	
+	Changed the global variable t to be included in the
+	function and renamed to showMessage_t.
+	
+	Extended the plugin to use the jQuery.fn (does not
+	return a value so this may not be chainable).
