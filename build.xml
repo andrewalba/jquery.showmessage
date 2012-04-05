@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="jquery-showmessage" basedir=".">
+	<!-- jquery-showmessage version -->
+	<property name="version" value="3.0" />
+    <!-- Full path of the current project -->
+    <property name="projectPath" value="${basedir}/src/assets/js" />
+    <!-- List of javascript files to compile -->
+    <property name="filesToCompile" value="${projectPath}/jquery.showMessage.js" />
+    <!-- Full path to the compiled file (created if not defined) -->
+    <property name="outputPath" value="${projectPath}/jquery.showMessage.min.js" />
+    <!-- Full path to the compiler jar -->
+    <property name="compilerPath" value="${basedir}/closure-compiler/build/compiler.jar" />
+    <!-- Full path to the file which will contains debug output and errors -->
+    <!--<property name="logPath" value="${basedir}/closure-compiler.log" />-->
+    <!-- Compilation level -->
+    <property name="compilationLevel" value="SIMPLE_OPTIMIZATIONS" />
+
+    <condition property="isUnix">
+        <os family="unix" />
+    </condition>
+    <condition property="isMac">
+        <os family="mac" />
+    </condition>
+    <condition property="isWindows">
+        <os family="windows" />
+    </condition>
+
+    <target name="JavaScript_Compilation_Mac" if="isMac">
+        <echo message="this is the mac target"/>
+        <java jar="${compilerPath}" fork="true">
+            <arg line="--compilation_level ${compilationLevel} --js ${filesToCompile} --js_output_file ${outputPath}" />
+        </java>
+    </target>
+
+    <echoproperties/>
+    
+</project>

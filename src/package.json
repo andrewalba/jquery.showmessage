@@ -1,0 +1,36 @@
+{
+    "name": "ShowMessage",
+    "version": "3.0",
+    "title": "jQuery.ShowMessage()",
+    "author": {
+        "name": "Andrew Alba",
+        "url": "https://github.com/andrewalba"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": " http://www.opensource.org/licenses/mit-license.php"
+        },
+        {
+            "type": "GPL",
+            "url": "http://www.gnu.org/licenses/gpl.html"
+        }
+    ],
+    "dependencies": {
+        "jquery": "1"
+    },
+    "description": "The main purpose of this plugin is to provide quick method for displaying notifications on a document. This plugin inspired by Twitter notification",
+    "keywords": [
+        "message",
+        "notification",
+        "twitter",
+	    "opacity",
+	    "position"
+    ],
+    "homepage": "https://github.com/jquery/jquery-showmessage",
+    "contributors": [],
+    "files": [
+        "jquery.showmessage.js",
+	    "jquery.showmessage.min.js"
+    ]
+}
