@@ -3,8 +3,8 @@ Contributors: andrew.alba
 Donate link: http://www.wordpress-plug.in/
 Tags: jquery, notification, twitter
 Requires at least: 1.3.2
-Tested up to: 1.5.2
-Stable tag: 2.4
+Tested up to: 1.7+
+Stable tag: 3.0
 
 jQuery notification method similar to one found on Twitter site.
 
@@ -22,8 +22,9 @@ This jQuery plug-in was inspired by a similar effect you can see on the Twitter 
 This section describes how to install the plugin and get it working.
 
 1.  Download jquery.showmessage and unzip/unpack on in your public directory
-1.	Insert `<script type="text/javascript" src="/path/to/jquery.showMessage.min.js" charset="utf-8"></script>` after jQuery is loaded
-1.	Call the plugin relative to the element you want to append it too. `jQuery('body').showMessage({'thisMessage':['This is message one!','This is second message']});`
+1.  Insert `<link type="text/css" href="/path/to/assets/css/showMessage.css" rel="stylesheet" screen="media"/> in the head of your document.
+1.	Insert `<script type="text/javascript" src="/path/to/assets/js/jquery.showMessage.min.js" charset="utf-8"></script>` after jQuery is loaded (end of page).
+1.	Call the plugin (default appends to <body/>. `$.showMessage({'thisMessage':['This is message one!','This is second message']});`
 
 == Frequently Asked Questions ==
 
@@ -31,24 +32,29 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= 2.4 =
+= v3.0 =
+* Complete rewrite to better harness jQuery methods and create API for ease of use.
+* Replaced position option to reflect CSS style position attribute.
+* Former position attribute name changed to location. Options remain ['top','bottom'].
+
+= v2.4 =
 * Found warning for unscoped variable 'event'. Changed line 60 to read keycode = window.event.keyCode;
 * Added some different styles to the notification windows.
 
-= 2.3 =
+= v2.3 =
 * Plug-in was overwriting the selected element with 'body' element (was accidently hard coded and never properly removed).
 * Added another option for z-index. Ran into an issue where notification was being placed behind a light box. The new option will give more flexibility to and allow the plug-in to determine various z-index.
 
-= 2.2 =
+= v2.2 =
 * Minor change as per recommendation by Sebastian Kun (http://www.arcestra.com/).
 * Added options for better 'internationalization' of navigation text. Sebastian added two more options for closeLink text and closeText text.
 * Removed the jquery.showMessage.pack.js option
 
-= 2.1 =
+= v2.1 =
 * Minor change to option.position. Changed order so looking for top position else set to bottom.
 * Issue with IE7+ if there is no doctype declared (shame on you, since DOCTYPES are vital to the proper functioning of web standards in browsers), we have changed insertion of #showMessage to either .prepend() or .append() depending on if position is top or bottom.
 
-= 2.0 =
+= v2.0 =
 * Received a request to make some improvements to the plugin from DaveG. Thank you much for the constructive comments DaveG.
 * Added new option useEsc to allow the 'esc' key to be optional (boolean true|false).
 * Changed the global variable t to be included in the function and renamed to showMessage_t.
