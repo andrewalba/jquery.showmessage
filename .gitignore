@@ -1,0 +1,6 @@
+.idea/*
+closure-compiler/*
+.project
+jquery.showmessage.iml
+.gitignore
+.atlassian-ide-plugin.xml
