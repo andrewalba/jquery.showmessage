@@ -1,6 +1,6 @@
 {
     "name": "ShowMessage",
-    "version": "3.0",
+    "version": "3.1",
     "title": "jQuery.ShowMessage()",
     "author": {
         "name": "Andrew Alba",
@@ -27,7 +27,7 @@
 	    "opacity",
 	    "position"
     ],
-    "homepage": "https://github.com/jquery/jquery-showmessage",
+    "homepage": "https://andrewalba.github.com/jquery.showmessage",
     "contributors": [],
     "files": [
         "jquery.showmessage.js",
