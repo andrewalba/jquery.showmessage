@@ -1,73 +1,105 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>showMessage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Andrew Alba">
+
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" /><link href="stylesheets/style.css" rel="stylesheet" type="text/css" media="screen"/>
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+    <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet" type="text/css" media="screen"/>
 
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>jQuery.showMessage by andrewalba</title>
-  </head>
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+</head>
+<body>
 
-  <body>
-    <header>
-      <div class="inner">
-        <h1>jQuery.showMessage</h1>
-        <h2>jQuery plug in to show a Twitter like notification effect</h2>
-        <a href="https://github.com/andrewalba/jquery.showmessage" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
+<div class="navbar navbar-fixed-top">
+    <div id="banner"><a href="https://github.com/andrewalba/jquery.showmessage/fork" target="_blank">Fork me on GitHub</a></div>
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/showMessage/">showMessage v3.0</a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="active"><a href="//andrewalba.github.com/jquery.showmessage">Home</a></li>
+                    <li><a href="//andrewalba.github.com/jquery.showmessage/howTo.html">How to use</a></li>
+                    <li><a href="//andrewalba.github.com/jquery.showmessage/options.html">Options &amp; API</a></li>
+                    <li><a href="//andrewalba.github.com/jquery.showmessage/examples.html">Examples</a></li>
+                    <li><a href="https://github.com/andrewalba/jquery.showmessage/issues" target="_blank">Support</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h3>jQuery plugin for notifications</h3>
+<div class="container">
 
-<p>This jQuery plugin will help you display custom notifications that get attention, but can be less intrusive.</p>
-
-<h3>Author</h3>
-
-<p>This plugin was written in 2009 by Andrew Alba (<a href="https://github.com/andrewalba" class="user-mention">@andrewalba</a>) of <a href="http://AlbaWebStudio.com">http://AlbaWebStudio.com</a>.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with the plugin? Check out the support page we have setup <a href="http://andrewalba.github.com/jquery.showmessage/issues">http://andrewalba.github.com/jquery.showmessage/issues</a>.</p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/andrewalba/jquery.showmessage/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/andrewalba/jquery.showmessage/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/andrewalba/jquery.showmessage"></a> is maintained by <a href="https://github.com/andrewalba">andrewalba</a>.</p>
-
-          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+    <div class="hero-unit">
+        <h1>showMessage</h1>
+        <p>This jQuery plugin is a tool for displaying text, images, or both in a notification box that floats overtop of web page. We built this plugin using the jQuery library and have licensed the plugin under both MIT and GPL licenses.</p>
+        <p><a class="btn btn-primary btn-large" href="//andrewalba.github.com/jquery.showmessage/howTo.html">Learn more &raquo;</a></p>
     </div>
 
-            <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-1919768-29");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+    <!-- three columns start -->
+    <div class="row">
+        <div class="span4">
+            <h2>Easy To Use</h2>
+            <p>This plugin is easy to use and features several options to allow you to customize it for your site. We have taken user input and developed this plugin to be as robust as possible.</p>
+            <p><a class="btn btn-info" href="//andrewalba.github.com/jquery.showmessage/options.html"><i class="icon-info-sign icon-white"></i> Options</a></p>
+        </div>
+        <div class="span4">
+            <h2>Download</h2>
+            <p>You can download the code here or feel free to fork this project.</p>
+            <p><a class="btn btn-success" href="//github.com/andrewalba/jquery.showmessage/zipball/master"><i class="icon-download icon-white"></i> Download .zip</a>&nbsp;<a class="btn btn-success" href="//github.com/andrewalba/jquery.showmessage/tarball/master"><i class="icon-download icon-white"></i> Download .tar.gz</a></p>
+        </div>
+        <div class="span4">
+            <h2>Demo</h2>
+            <p>A first attempt at a jQuery plugin. This jQuery plugin was inspired by a similar effect seen on the Twitter.com site.</p>
+            <p><a class="btn" href="//andrewalba.github.com/jquery.showmessage/examples.html">Try it &raquo;</a></p>
+        </div>
+    </div>
+    <!-- three columns end -->
+    <hr>
+    <footer>
+        <p>&copy; Alba Web Studio 2002-2012</p>
+    </footer>
 
-  </body>
+</div> <!-- /container -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1919768-29']);
+    _gaq.push(['_trackPageview', '/showMessage/download']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+</body>
 </html>

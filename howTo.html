@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>How To: showMessage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Andrew Alba">
+
+    <link href="assets/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link href="assets/css/prettify.css" type="text/css" rel="stylesheet"/>
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+        .list {margin-bottom:2em;}
+        .list p {padding: 0 10px 10px 10px;}
+        .list .listH {
+            font-weight: bold;
+            background: #F3F3F3;
+            border-top: 1px solid #E2E2E2;
+            border-bottom: 1px solid #E2E2E2;
+            padding: 12px 7px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+    </style>
+    <link href="assets/css/bootstrap-responsive.min.css" type="text/css" rel="stylesheet"/>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="//andrewalba.github.com/jquery.showmessage">showMessage v3.0</a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li><a href="/showMessage/">Home</a></li>
+                    <li class="active"><a href="//andrewalba.github.com/jquery.showmessage/howTo.html">How to use</a></li>
+                    <li><a href="//andrewalba.github.com/jquery.showmessage/options.html">Options &amp; API</a></li>
+                    <li><a href="//andrewalba.github.com/jquery.showmessage/examples.html">Examples</a></li>
+                    <li><a href="https://github.com/andrewalba/jquery.showmessage/issues" target="_blank">Support</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- two column start -->
+    <div class="row">
+        <div class="span8">
+            <h2>How To Use</h2>
+            <p>Download the plugin, unzip the contents, and include showMessage script and stylesheet in your document. This is a jQuery plugin, so make sure you also have loaded the jQuery library.</p>
+
+            <div class="list">
+                <p class="listH">1. Include your JavaScript.</p>
+                <p>You will need to load jQuery and this plugin JavaScript. You can load jQuery directly from your host or you can <a href="#" class="tooltip" title="We highly recommend this!">use a CDN</a>.</p>
+						<pre class="prettyprint linenums">&lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/js/jquery.showmessage.min.js"&gt;&lt;/script&gt;</pre>
+            </div>
+
+            <div class="list">
+                <p class="listH">2. Include your CSS</p>
+                <p>You can style the text, or the responses that are displayed through an unordered list in the div with id attribute showMessage. Further more you can apply the class of your choice to the notification.</p>
+                <pre class="prettyprint linenums">&lt;link type="text/css" href="/assets/css/showMessage.css" rel="stylesheet" media="screen" /&gt;</pre>
+            </div>
+
+            <div class="list">
+                <p class="listH">3. Define your message</p>
+                <p>Your message can be plain text, html, images or any combination of all three. The message should be pushed to the plugin via an array. Here is an example of how to define an array for the message.</p>
+                <pre class="prettyprint linenums">var returnMessage = ['&lt;h4&gt;Account was created successfully!&lt;/h4&gt;','Thank you.'];</pre>
+            </div>
+
+            <div class="list">
+                <p class="listH">4. Call the showMessage() method</p>
+                <p>You can attach the notification to the document, and element on the page or use a attribute of an element to attach notification to a specific element.</p>
+                <p>The following attached the notification to the document.</p>
+						<pre class="prettyprint linenums">jQuery(document).showMessage({
+	thisMessage: returnMessage,
+	className: success,
+	opacity: 95,
+	displayNavigation: false,
+	autoClose: true,
+	delayTime: 6000
+});</pre>
+            </div>
+        </div>
+        <div class="span4">
+            <p style="overflow:auto;">
+                <a class="btn btn-large btn-success span2" href="//github.com/andrewalba/jquery.showmessage/zipball/master"><i class="icon-download icon-white"></i> Download .zip</a>
+                <a class="btn btn-large btn-success span2" href="//github.com/andrewalba/jquery.showmessage/tarball/master"><i class="icon-download icon-white"></i> Download .tar.gz</a>
+            </p>
+            <p class="help-block"><strong>Version:</strong> 3.0</p>
+            <p><a href="//andrewalba.github.com/jquery.showmessage/changelog.html" title="change log">Change Log</a></p>
+        </div>
+    </div>
+    <!-- three columns end -->
+    <hr>
+    <footer>
+        <p>&copy; Alba Web Studio 2002-2012</p>
+    </footer>
+
+</div> <!-- /container -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/javascript/bootstrap-tooltip.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/javascript/prettify/prettify.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        prettyPrint();
+        jQuery('a.tooltip').tooltip();
+    });
+</script>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1919768-29']);
+    _gaq.push(['_trackPageview', '/showMessage/download']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Examples: showMessage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Andrew Alba">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="assets/css/showMessage.css" type="text/css" rel="stylesheet" media="screen"/>
+    <link href="assets/css/prettify.css" type="text/css" rel="stylesheet"/>
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+        .list {margin-bottom:2em;}
+        .list p {padding: 0 10px 10px 10px;}
+        .list .listH {
+            font-weight: bold;
+            background: #F3F3F3;
+            border-top: 1px solid #E2E2E2;
+            border-bottom: 1px solid #E2E2E2;
+            padding: 12px 7px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+    </style>
+    <link href="assets/css/bootstrap-responsive.min.css" type="text/css" rel="stylesheet"/>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="//andrewalba.github.com/jquery.showmessage">showMessage v3.0</a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li><a href="//andrewalba.github.com/jquery.showmessage">Home</a></li>
+                    <li><a href="//andrewalba.github.com/jquery.showmessage/howTo.html">How to use</a></li>
+                    <li><a href="//andrewalba.github.com/jquery.showmessage/options.html">Options &amp; API</a></li>
+                    <li class="active"><a href="//andrewalba.github.com/jquery.showmessage/examples.html">Examples</a></li>
+                    <li><a href="https://github.com/andrewalba/jquery.showmessage/issues" target="_blank">Support</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- two column start -->
+    <div class="row">
+        <div class="span8">
+            <h2>Demo</h2>
+            <p>We have created a few examples of how the plugin can be used below</p>
+
+            <div class="list">
+                <p class="listH">1. Use an event, any event really.</p>
+                <p>Call the method with an event like a click!.</p>
+                <p><a href="javascript:void(0);" id="clickMe" class="btn btn-primary" title="Click Me">Click Me</a></p>
+						<pre class="prettyprint linenums">jQuery('#clickMe').click(function() {
+	$('body').showMessage({thisMessage: ['Hey! Something bit me!']});
+	return false;
+});</pre>
+            </div>
+
+            <div class="list">
+                <p class="listH">2. Form validation.</p>
+                <p>You can validate a form (client side or server side) using JavaScript and an Asynchronous call.</p>
+                <form id="joeForm" class="well">
+                    <label>Joe's Name:</label>
+                    <input type="text" name="joeName" placeholder="Enter a name here..."/>
+                    <span class="help-inline">It should be 'Joe'.</span>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+						<pre class="prettyprint linenums">jQuery('#joeForm').on('submit', function() {
+	var rMessage = [],rClass='success';
+	if (jQuery('input[name="joeName"]').val() === 'Joe') {
+		rMessage.push('You know Joe!');
+	} else {
+		rMessage.push('Bahnt! Enter Joe foo!');
+		rClass='fail';
+	}
+	jQuery('body').showMessage({thisMessage: rMessage, className: rClass});
+	return false;
+});</pre>
+            </div>
+
+            <div class="list">
+                <p class="listH">3. Open inside another element.</p>
+                <p>You can open the notification on just about any element. This example shows how we can display message in a modal window.</p>
+                <em class="help-block">Note that the modal window we opened has an attribute id="testModal".</em>
+                <p><a href="#testModal" id="myModal" data-toggle="modal" class="btn btn-inverse">Test <i class="icon-chevron-right icon-white"></i></a></p>
+						<pre class="prettyprint linenums">jQuery('#modalBtn').click(function() {
+	jQuery('#testModal').showMessage({thisMessage: ['You opened my modal!'], position: 'absolute'});
+	return false;
+});</pre>
+            </div>
+
+            <div class="list">
+                <p class="listH">4. Use it as a tooltip.</p>
+                <p>You can attach the notification to the document, and element on the page or use a attribute of an element to attach notification to a specific element.</p>
+                <p>Mouse <a href="#" class="sMtooltip" title="Whoa dude! This is just a bit of overkill, isn't it?">over the link</a> to view an excessively pretentious tooltip.</p>
+						<pre class="prettyprint linenums">jQuery('a.sMtooltip').mouseenter(function() {
+	returnMessage = [jQuery(this).attr('title')];
+	$.showMessage({
+		thisMessage: returnMessage,
+		className: 'success',
+		opacity: .95,
+		displayNavigation: false,
+		autoClose: true,
+		delayTime: 3000
+	});
+	return false;
+}).click(function() {return false;});</pre>
+            </div>
+        </div>
+        <div class="span4">
+            <p style="overflow:auto;">
+                <a class="btn btn-large btn-success span2" href="//github.com/andrewalba/jquery.showmessage/zipball/master"><i class="icon-download icon-white"></i> Download .zip</a>
+                <a class="btn btn-large btn-success span2" href="//github.com/andrewalba/jquery.showmessage/tarball/master"><i class="icon-download icon-white"></i> Download .tar.gz</a>
+            </p>
+            <p class="help-block"><strong>Version:</strong> 3.0</p>
+            <p><a href="//andrewalba.github.com/jquery.showmessage/changelog.html" title="change log">Change Log</a></p>
+        </div>
+    </div>
+    <!-- three columns end -->
+    <hr>
+    <footer>
+        <p>&copy; Alba Web Studio 2002-2012</p>
+    </footer>
+
+</div> <!-- /container -->
+
+<!-- test modal -->
+<div id="testModal" class="modal" style="display:none;">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Modal Test</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Some lipsum to fill up modal</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet viverra nunc. Quisque blandit magna quis nibh sollicitudin ut placerat risus interdum. Mauris a lobortis tortor. Donec lectus orci, convallis non tempor vulputate, feugiat vitae purus. Nulla facilisi. Proin pharetra luctus nibh, et vehicula eros sodales ac.</p>
+        <p>Ut tristique ultrices erat in vulputate. Donec bibendum dapibus neque ac scelerisque. Pellentesque scelerisque consequat urna sed venenatis. Nunc in justo a lectus pretium ultrices a ut est. Vestibulum sed bibendum nulla. Donec fermentum, diam ut imperdiet tincidunt, erat tortor venenatis metus, in molestie urna magna non orci.</p>
+        <p>Ut quis est eget velit lobortis molestie. Duis sit amet leo ante, id ornare lorem. Proin nec lectus quis dui fringilla consectetur vitae nec sapien. Duis turpis nibh, dapibus eu pharetra in, porta molestie ipsum.</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close Modal</a>
+        <a href="#" id="modalBtn" class="btn">Show Message</a>
+        <a href="#" class="btn" onClick="$.showMessage.close()">Close Message</a>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/prettify/prettify.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/jquery.showMessage.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var message1=['Hey! Something bit me!'];
+    jQuery(document).ready(function() {
+        prettyPrint();
+        jQuery('#clickMe').click(function() {
+            $('body').showMessage({thisMessage: ['Hey! Something bit me!'], zIndex: 1031});
+            return false;
+        });
+        jQuery('#joeForm').on('submit', function() {
+            var rMessage = [],rClass='success';
+            if (jQuery('input[name="joeName"]').val() === 'Joe') {
+                rMessage.push('You know Joe!');
+            } else {
+                rMessage.push('Bahnt! Enter Joe foo!');
+                rClass='fail'
+            }
+            jQuery('body').showMessage({thisMessage: rMessage, zIndex: 1031, className: rClass});
+            return false;
+        });
+        jQuery('#modalBtn').click(function() {
+            jQuery('#testModal').showMessage({thisMessage: ['You opened my modal!'], position: 'absolute'});
+            return false;
+        });
+        jQuery('a.sMtooltip').mouseenter(function() {
+            returnMessage = [jQuery(this).attr('title')];
+            $.showMessage({
+                thisMessage: returnMessage,
+                className: 'success',
+                opacity: .95,
+                displayNavigation: false,
+                autoClose: true,
+                delayTime: 3000,
+                zIndex: 1031,
+                position: 'fixed'
+            });
+            return false;
+        }).click(function() {return false;});
+    });
+</script>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1919768-29']);
+    _gaq.push(['_trackPageview', '/showMessage/download']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+</body>
+</html>
