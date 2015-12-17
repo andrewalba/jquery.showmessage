@@ -1,105 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>showMessage</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Andrew Alba">
+	<meta charset="utf-8">
+	<title>showMessage</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="jQuery show message plugin">
+	<meta name="author" content="Andrew Alba">
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="assets/css/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="assets/css/print.css" media="print" />
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css" media="screen"/>
-    <style type="text/css">
-        body {
-            padding-top: 60px;
-            padding-bottom: 40px;
-        }
-    </style>
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css" media="screen" />
+	<link href="assets/css/showMessage.css" type="text/css" rel="stylesheet" media="screen"/>
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css" media="screen"/>
+	<style type="text/css">
+		body {
+			padding-top: 80px;
+			padding-bottom: 40px;
+		}
+	</style>
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+	<![endif]-->
 
-    <link rel="shortcut icon" href="ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+	<link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
+	<link rel="icon" href="assets/ico/favicon.ico">
 </head>
 <body>
 
-<div class="navbar navbar-fixed-top">
-    <div id="banner"><a href="https://github.com/andrewalba/jquery.showmessage/fork" target="_blank">Fork me on GitHub</a></div>
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a class="brand" href="/showMessage/">showMessage v3.1</a>
-            <div class="nav-collapse">
-                <ul class="nav">
-                    <li class="active"><a href="//andrewalba.github.com/jquery.showmessage">Home</a></li>
-                    <li><a href="//andrewalba.github.com/jquery.showmessage/howTo.html">How to use</a></li>
-                    <li><a href="//andrewalba.github.com/jquery.showmessage/options.html">Options &amp; API</a></li>
-                    <li><a href="//andrewalba.github.com/jquery.showmessage/examples.html">Examples</a></li>
-                    <li><a href="https://github.com/andrewalba/jquery.showmessage/issues" target="_blank">Support</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </div>
-</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/showMessage/">showMessage v3.1</a>
+		</div>
 
-<div class="container">
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a data-scroll href="#home"><i class="fa fa-home"></i> Home</a></li>
+				<li><a data-scroll href="#howto"><i class="fa fa-file-code-o"></i> How To Use</a></li>
+				<li><a data-scroll href="#options"><i class="fa fa-cogs"></i> Options</a></li>
+				<li><a data-scroll href="#example"><i class="fa fa-code"></i> Examples</a></li>
+				<li><a data-scroll href="#changelog"><i class="fa fa-list-alt"></i> Change Log</a></li>
+				<li><a href="https://github.com/andrewalba/jquery.showmessage/issues" target="_blank">Support</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
 
-    <div class="hero-unit">
-        <h1>showMessage</h1>
-        <p>This jQuery plugin is a tool for displaying text, images, or both in a notification box that floats overtop of web page. We built this plugin using the jQuery library and have licensed the plugin under both MIT and GPL licenses.</p>
-        <p><a class="btn btn-primary btn-large" href="//andrewalba.github.com/jquery.showmessage/howTo.html">Learn more &raquo;</a></p>
-    </div>
+<section id="home">
+	<div class="container">
 
-    <!-- three columns start -->
-    <div class="row">
-        <div class="span4">
-            <h2>Easy To Use</h2>
-            <p>This plugin is easy to use and features several options to allow you to customize it for your site. We have taken user input and developed this plugin to be as robust as possible.</p>
-            <p><a class="btn btn-info" href="//andrewalba.github.com/jquery.showmessage/options.html"><i class="icon-info-sign icon-white"></i> Options</a></p>
-        </div>
-        <div class="span4">
-            <h2>Download</h2>
-            <p>You can download the code here or feel free to fork this project.</p>
-            <p><a class="btn btn-success" href="//github.com/andrewalba/jquery.showmessage/zipball/master"><i class="icon-download icon-white"></i> Download .zip</a>&nbsp;<a class="btn btn-success" href="//github.com/andrewalba/jquery.showmessage/tarball/master"><i class="icon-download icon-white"></i> Download .tar.gz</a></p>
-        </div>
-        <div class="span4">
-            <h2>Demo</h2>
-            <p>A first attempt at a jQuery plugin. This jQuery plugin was inspired by a similar effect seen on the Twitter.com site.</p>
-            <p><a class="btn" href="//andrewalba.github.com/jquery.showmessage/examples.html">Try it &raquo;</a></p>
-        </div>
-    </div>
-    <!-- three columns end -->
-    <hr>
-    <footer>
-        <p>&copy; Alba Web Studio 2002-2012</p>
-    </footer>
+		<div class="jumbotron">
+			<h1>jQuery.showMessage</h1>
+			<p>This jQuery plugin is useful for displaying text, images, or both in a notification box that floats overtop of web page. We built this plugin using the jQuery library and have licensed the plugin under both MIT and GPL licenses.</p>
+			<p><a class="btn btn-success" href="//github.com/andrewalba/jquery.showmessage/zipball/master" target="_blank"><i class="fa fa-download"></i> Download .zip</a>&nbsp;<a class="btn btn-success" href="//github.com/andrewalba/jquery.showmessage/tarball/master" target="_blank"><i class="fa fa-download"></i> Download .tar.gz</a></p>
+		</div>
 
-</div> <!-- /container -->
+		<!-- three columns start -->
+		<div class="row">
+			<div class="col-xs-12 col-sm-4">
+				<h2>Easy To Use</h2>
+				<p>This plugin is easy to use and features several options to allow you to customize it for your site. We have taken user input and developed this plugin to be as robust as possible.</p>
+				<p><a class="btn btn-info" data-scroll href="#options"><i class="fa fa-cogs"></i> Options</a></p>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<h2>API Methods</h2>
+				<p>We have introduced API methods that can be used to interact with jQuery.showMessage. Currently there is only a close method, but if we have more interest we will continue to build in more.</p>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<h2>Demo</h2>
+				<p>A first attempt at a jQuery plugin. This jQuery plugin was inspired by a similar effect seen on the Twitter.com site.</p>
+				<p><a class="btn btn-default" data-scroll href="#example"><i class="fa fa-check"></i> Try it</a></p>
+			</div>
+		</div>
+		<!-- three columns end -->
+	</div> <!-- /container -->
+</section>
+
+<section id="howto">
+	<div class="container">
+		<!-- two column start -->
+		<div class="row">
+			<div class="col-xs-12">
+				<h2><i class="fa fa-file-code-o"></i> How To Use</h2>
+				<p>Download the plugin, unzip the contents, and include showMessage script and stylesheet in your document. This is a jQuery plugin, so make sure you also have loaded the jQuery library.</p>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">1. Include your JavaScript.</h3>
+					</div>
+					<div class="panel-body">
+						<p>You will need to load jQuery and this plugin JavaScript. You can load jQuery directly from your host or you can <a href="#" class="tooltip" title="We highly recommend this!">use a CDN</a>.</p>
+					</div>
+					<div class="panel-footer">
+						<pre class="prettyprint linenums">
+&lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/js/jquery.showmessage.min.js"&gt;&lt;/script&gt;
+						</pre>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">2. Include your CSS</h3>
+					</div>
+					<div class="panel-body">
+						<p>You can style the text, or the responses that are displayed through an unordered list in the div with id attribute showMessage. Further more you can apply the class of your choice to the notification.</p>
+					</div>
+					<div class="panel-footer">
+						<pre class="prettyprint linenums">&lt;link type="text/css" href="/assets/css/showMessage.css" rel="stylesheet" media="screen" /&gt;</pre>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">3. Define your message</h3>
+					</div>
+					<div class="panel-body">
+						<p>Your message can be plain text, html, images or any combination of all three. The message should be pushed to the plugin via an array. Here is an example of how to define an array for the message.</p>
+					</div>
+					<div class="panel-footer">
+						<pre class="prettyprint linenums">var returnMessage = ['&lt;h4&gt;Account was created successfully!&lt;/h4&gt;','Thank you.'];</pre>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">4. Call the showMessage() method</h3>
+					</div>
+					<div class="panel-body">
+						<p>You can attach the notification to the document, and element on the page or use a attribute of an element to attach notification to a specific element.</p>
+						<p>The following attached the notification to the document.</p>
+					</div>
+					<div class="panel-footer">
+						<pre class="prettyprint linenums">
+jQuery(document).showMessage({
+	thisMessage: returnMessage,
+	className: success,
+	opacity: 95,
+	displayNavigation: false,
+	autoClose: true,
+	delayTime: 6000
+});
+						</pre>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<section id="options">
+	<div class="container">
+		<h2><i class="fa fa-cogs"></i> Options</h2>
+		<div class="row">
+			<div class="col-xs-12">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#option" data-toggle="tab">Options Available</a></li>
+					<li><a href="#api" data-toggle="tab">API Methods</a></li>
+					<!-- <li><a href="callbacks" data-toggle="tab">Callbacks</a></li> -->
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane fade in active" id="option">
+						<p>You can customize the plugin by passing options as a key/value object to showmessage() method.</p>
+						<table class="table table-striped">
+							<thead>
+							<tr>
+								<th>Key</th>
+								<th>Value</th>
+								<th>Default Value</th>
+								<th>Description</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>thisMessage</td>
+								<td>Array</td>
+								<td>Empty Array</td>
+								<td>The message you will be returning to the page. The message is in the form of an array.</td>
+							</tr>
+							<tr>
+								<td>className</td>
+								<td>String</td>
+								<td>'notification'</td>
+								<td>Customize the style for the notification bar here.</td>
+							</tr>
+							<tr>
+								<td>position</td>
+								<td>String</td>
+								<td>'fixed'</td>
+								<td>Notification bar css position. Use any of the valid position property values ['fixed','absolute','static','relative','inherit'].</td>
+							</tr>
+							<tr>
+								<td>zIndex</td>
+								<td>Integer</td>
+								<td>1001</td>
+								<td>The z-index of the notification bar. Value is an integer greater then one.</td>
+							</tr>
+							<tr>
+								<td>opacity</td>
+								<td>Integer</td>
+								<td>90</td>
+								<td>Opacity of the notification bar. Value is an integer between 1 and 100.</td>
+							</tr>
+							<tr>
+								<td>location</td>
+								<td>String</td>
+								<td>'top'</td>
+								<td>Position of the notification bar. Value can be either 'top' or 'bottom' only.</td>
+							</tr>
+							<tr>
+								<td>useEsc</td>
+								<td>Boolean</td>
+								<td>true</td>
+								<td>Will bind the 'Esc' keydown event to window to close the notificaton bar.</td>
+							</tr>
+							<tr>
+								<td>displayNavigation</td>
+								<td>Boolean</td>
+								<td>true</td>
+								<td>Will display the navigation close text information in upper right.</td>
+							</tr>
+							<tr>
+								<td>autoClose</td>
+								<td>Boolean</td>
+								<td>false</td>
+								<td>When set to true, it will close the notification bar after specified delay time.</td>
+							</tr>
+							<tr>
+								<td>delayTime</td>
+								<td>Integer</td>
+								<td>5000</td>
+								<td>Amount of time in milli-seconds before the notification bar will close/hide (autoClose must be set to true).</td>
+							</tr>
+							<tr>
+								<td>closeText</td>
+								<td>String</td>
+								<td>'close'</td>
+								<td>Text that you want the notification to display in upper right to close window.</td>
+							</tr>
+							<tr>
+								<td>escText</td>
+								<td>String</td>
+								<td>'Esc Key or'</td>
+								<td>Text that you want the notification to display in upper right to close window with 'Esc' key.</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="tab-pane fade" id="api">
+						<p>We have just started working on public functions to help you utilize the plugin in a number of different scenarios. These functions can be called as a property of the $.showMessage object.
+							To use from inside the iframe - </p>
+						<span class="help-block"><code>&lt;a href="javascript:parent.$.showMessage.close();"&gt;Close message&lt;/a&gt;</code></span>
+						<table class="table table-striped">
+							<thead>
+							<tr>
+								<th>Name</th>
+								<th>Description</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>close</td>
+								<td>
+									<code>$.showMessage.close()</code>
+									<p>This will close the notification and clear 'autoClose' if it exists</p>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- <div class="tab-pane" id="callbacks">
+									<p>We are working on this feature</p>
+								</div> -->
+				</div> <!-- end of tab content -->
+
+			</div><!-- end of column one -->
+		</div>
+	</div>
+</section>
+
+<section id="example">
+	<div class="container">
+		<!-- two column start -->
+		<div class="row">
+			<div class="col-xs-12">
+				<h2><i class="fa fa-code"></i> Examples</h2>
+				<p>We have created a few examples of how the plugin can be used below</p>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">1. Use an event, any event really.</h3>
+					</div>
+					<div class="panel-body">
+						<p>Call the method with an event like a click!.</p>
+						<p><a href="javascript:void(0);" id="clickMe" class="btn btn-primary" title="Click Me">Click Me</a></p>
+					</div>
+					<div class="panel-footer">
+						<pre class="prettyprint linenums">
+jQuery('#clickMe').click(function() {
+	$('body').showMessage({thisMessage: ['Hey! Something bit me!']});
+	return false;
+});
+						</pre>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">2. Form validation.</h3>
+					</div>
+					<div class="panel-body">
+						<p>You can validate a form (client side or server side) using JavaScript and an Asynchronous call.</p>
+						<form id="joeForm" class="well">
+							<label>Joe's Name:</label>
+							<input type="text" name="joeName" placeholder="Enter a name here..."/>
+							<span class="help-inline">It should be 'Joe'.</span>
+							<button type="submit" class="btn">Submit</button>
+						</form>
+					</div>
+					<div class="panel-footer">
+						<pre class="prettyprint linenums">
+jQuery('#joeForm').on('submit', function() {
+	var rMessage = [],rClass='success';
+	if (jQuery('input[name="joeName"]').val() === 'Joe') {
+		rMessage.push('You know Joe!');
+	} else {
+		rMessage.push('Bahnt! Enter Joe foo!');
+		rClass='fail';
+	}
+	jQuery('body').showMessage({thisMessage: rMessage, className: rClass});
+	return false;
+});
+						</pre>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">3. Open inside another element.</h3>
+					</div>
+					<div class="panel-body">
+						<p>You can open the notification on just about any element. This example shows how we can display message in a modal window.</p>
+						<em class="help-block">Note that the modal window we opened has an attribute id="testModal".</em>
+						<p><a href="#testModal" id="myModal" data-toggle="modal" class="btn btn-default">Test <i class="fa fa-angle-double-right"></i></a></p>
+					</div>
+					<div class="panel-footer">
+						<pre class="prettyprint linenums">
+jQuery('#modalBtn').click(function() {
+	jQuery('#testModal').showMessage({thisMessage: ['You opened my modal!'], position: 'absolute'});
+	return false;
+});
+						</pre>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">4. Use it as a tooltip.</h3>
+					</div>
+					<div class="panel-body">
+						<p>You can attach the notification to the document, and element on the page or use a attribute of an element to attach notification to a specific element.</p>
+						<p>Mouse <a href="#" class="sMtooltip" title="Whoa dude! This is just a bit of overkill, isn't it?">over the link</a> to view an excessively pretentious tooltip.</p>
+					</div>
+					<div class="panel-footer">
+						<pre class="prettyprint linenums">
+jQuery('a.sMtooltip').mouseenter(function() {
+	returnMessage = [jQuery(this).attr('title')];
+	$.showMessage({
+		thisMessage: returnMessage,
+		className: 'success',
+		opacity: .95,
+		displayNavigation: false,
+		autoClose: true,
+		delayTime: 3000
+	});
+	return false;
+}).click(function() {return false;});
+						</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="changelog">
+	<div class="container">
+
+	<!-- two column start -->
+		<div class="row">
+			<div class="col-xs-12">
+				<h2><i class="fa fa-list-alt"></i> Change Log</h2>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">2012-09-28 v3.1</h3>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>Serious rewrite to fix the following errors</li>
+							<li>Incorrect merge of plugin defaults</li>
+							<li>Validation errors</li>
+							<li>Javascript errors</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">2012-04-04 v3.0</h3>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>Complete rewrite to better harness jQuery methods and create API for ease of use.</li>
+							<li>Replaced position option to reflect CSS style position attribute.</li>
+							<li>Former position attribute name changed to location. Options remain ['top','bottom']</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">2011-04-18 v2.4</h3>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>Found warning for unscoped variable 'event'. Changed line 60 to read keycode = window.event.keyCode;</li>
+							<li>Added some different styles to the notification windows.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">2010-12-20 v2.3</h3>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>Plug-in was overwriting the selected element with 'body' element (was accidently hard coded and never properly removed).</li>
+							<li>Added another option for z-index. Ran into an issue where notification was being placed behind a light box. The new option will give more flexibility to and allow the plug-in to determine various z-index.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">2010-11-23 v2.2</h3>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>Minor change as per recommendation by Sebastian Kun (http://www.arcestra.com/).</li>
+							<li>Added options for better 'internationalization' of navigation text. Sebastian added two more options for closeLink text and closeText text.</li>
+							<li>Removed the jquery.showMessage.pack.js option</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">2010-05-06 v2.1</h3>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>Minor change to option.position. Changed order so looking for top position else set to bottom.</li>
+							<li>Issue with IE7+ if there is no doctype declared (shame on you, since DOCTYPES are vital to the proper functioning of web standards in browsers), we have changed insertion of #showMessage to either .prepend() or .append() depending on if position is top or bottom.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">2010-04-05 v2.0</h3>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>Received a request to make some improvements to the plugin from DaveG. Thank you much for the constructive comments DaveG.</li>
+							<li>Added new option useEsc to allow the 'esc' key to be optional (boolean true|false).</li>
+							<li>Changed the global variable t to be included in the function and renamed to showMessage_t.</li>
+							<li>Extended the plugin to use the jQuery.fn (does not return a value so this may not be chainable).</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-8">
+				<div class="social-nav">
+					<a href="https://www.facebook.com/albawebstudio" class="facebook" target="_blank"><span class="fa fa-facebook"></span></a>
+					<a href="https://twitter.com/albawebstudio" class="twitter" target="_blank"><span class="fa fa-twitter"></span></a>
+					<a href="https://www.linkedin.com/company/andrew-alba-web-studio" class="linkedin" target="_blank"><span class="fa fa-linkedin"></span></a>
+					<a href="http://albawebstudio.tumblr.com/" class="tumblr" target="_blank"><span class="fa fa-tumblr"></span></a>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<p class="pull-right">&copy; <a href="http://albawebstudio.com/" title="Alba Web Studio" target="_blank">Alba Web Studio</a> 2002-2016</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/7.1.1/js/smooth-scroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+<script src="assets/js/jquery.showMessage.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/ShowMessage.js"></script>
+
 <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-1919768-29']);
-    _gaq.push(['_trackPageview', '/showMessage/download']);
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-1919768-29']);
+	_gaq.push(['_trackPageview', '/showMessage/download']);
 
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	$(function(){
+		if( typeof ALBA != 'undefined' && typeof ALBA.ShowMessage != 'undefined' ) {
+			ALBA.ShowMessage.init();
+		}
+	});
 </script>
 
 </body>
